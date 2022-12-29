@@ -30,8 +30,6 @@ export default function Home() {
 		setIsDarkMode(currentMode);
 	};
 
-	const imageSource = isDarkMode ? "/dark.jpg" : "/light.jpg";
-
 	return (
 		<>
 			<Head>
@@ -51,11 +49,20 @@ export default function Home() {
 							alt="image"
 							width={1080}
 							height={1080}
-							src={imageSource}
+							src="/light.jpg"
 							onClick={handleImageClick}
-							className="w-11/12 max-w-md shadow-2xl cursor-pointer"
+							className="w-11/12 max-w-md shadow-2xl cursor-pointer dark:hidden"
 						/>
-						<div className=" text-base text-neutral-300 absolute top-5 left-1/2 -translate-x-1/2 leading-4">
+						<Image
+							priority
+							alt="image"
+							width={1080}
+							height={1080}
+							src="/dark.jpg"
+							onClick={handleImageClick}
+							className="w-11/12 max-w-md shadow-2xl cursor-pointer hidden dark:block"
+						/>
+						<div className="text-base text-neutral-300 absolute top-5 left-1/2 -translate-x-1/2 leading-4">
 							MVA SQUAD
 						</div>
 					</div>
